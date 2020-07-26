@@ -1,0 +1,167 @@
+<!document html>
+<html>
+<head>
+{% if titletag == "on" %}
+<title class = "title"> {{title}} </title>
+{% else %}
+<title class = "title"> Welcome to Ronaldo Seranllari's Assignment 11 web site </title>
+{% endif %}
+</head>
+
+<body style ="background-color:{{color}}">
+
+{% if titletag == "on" %}
+<h1 class = "title"> {{title}}</h1>
+{% else %}
+<h1 class = "title"> Welcome to Ronaldo Seranllari's Assignment 11 web site! </h1>
+{% endif %}
+
+
+{% if successful == "noaccount" %}
+	<h3 class = "warning"> Username not found</h3>
+{% endif %}
+
+{% if successful == "usertaken" %}
+	<h3 class = "warning"> An account with this username already exists </h3>
+{% endif %}
+
+{% if successful == "nopass" %}
+	<h3 class = "warning"> Please, enter a password </h3>
+{% endif %}
+
+{% if successful == "nouser" %}
+	<h3 class = "warning"> Please, enter a username </h3>
+{% endif %}
+
+{% if successful == "nofname" %}
+	<h3 class = "warning"> Please, enter a firstname</h3>
+{% endif %}
+
+{% if successful == "nolname" %}
+	<h3 class = "warning"> Please, enter a lastname </h3>
+{% endif %}
+
+{% if successful == "wrong" %}
+	<h3 class = "warning"> Your password is wrong </h3>
+{% endif %}
+{% if successful == "on" %}
+	
+	<h3 class = "text"> User {{fname}} {{lname}} successfuly logged in </h3>
+	<a class = "button" href = 'assignment11.html'>Log out</a><br>
+	
+<br><br><br><br>
+
+<img src = "{{image}}"/>
+
+<form id = "logged" method = "get" >
+	<h3 class = "info"> First name: <br><input type = "text" name = "editfname" value = "{{fname}}"><br> </h3>
+	<h3 class = "info"> Last name: <br><input type = "text" name = "editlname" value = "{{lname}}"><br> </h3>
+	<h3 class = "info"> Background color: <br><input type = "text" name = "color" value = "{{color}}"><br> </h3>
+	<h3 class = "info"> Title: <br><input type = "text" size = "50" name = "title" value = "{{title}}"><br> </h3>
+	<h3 class = "info"> Image: <br><input type = "text" size = "50" name = "image" value = "{{image}}"><br> </h3>
+	<input type = "hidden" name = "hidden" value = {{newuser}}>
+	<input type = "submit" class = "button" value = "Edit account information"><br>
+</form>
+	<br><br><br>
+
+{% else %} 
+
+<form id = "login" method = "get">
+	<h3 class = "info"> If you already have an account, log in here: </h3><br>
+	<h3 class = "info">Username: <br><input type = "text" id = "username" name = "username"><br></h3>
+	<h3 class = "info">Password: <br><input type = "password" id = "password" name = "password"><br></h3>
+	<input type = "submit" class ="button" value = "Log in"><br>
+</form>
+
+<br><br><br><br>
+
+<form id = "create" method = "get">
+	<h3 class = "info"> If you don't have an account, you can create one in here </h3><br>
+	<h3 class = "info"> Username: <br><input type = "text" id = "newuser" name = "newuser"><br></h3>
+	<h3 class = "info">Password: <br><input type = "password" id = "newpass" name = "newpass"><br></h3>
+	<h3 class = "info">First name: <br><input type = "text" id = "fname" name = "fname"><br></h3>
+	<h3 class = "info">Last name: <br><input type = "text" id = "lname" name = "lname"><br></h3>
+	<input type = "submit" class = "button" value = "Create account"><br>
+</form>
+{% endif %}
+<style>
+.button {
+	
+    	background-color: #F4DECB;
+    	padding: 10px 25px;
+    	border: 5px solid #F8EEE7;
+    	color: purple;
+    	font-weight: bold;
+    	font-size: 1.2em;
+	margin: auto; 
+			
+}
+
+.button:hover {
+	background-color: purple; 
+	color: white; 
+}
+
+#login, #create{
+		width: 500px; 
+		margin: auto; 
+		text-align: center; 
+		padding: 50px; 
+		border: 10px purple solid; 
+
+}
+
+
+
+.title {
+	
+	text-align: center; 
+	background-color: #F4DECB;
+	padding:  50px;
+	border: 5px solid #F8EEE7;
+	color: purple; 
+}
+
+.warning {
+	text-align: center;
+	color: red; 
+
+}
+
+.info {
+	color: brown; 
+}
+
+.text {
+	text-align: center; 
+	color: purple; 
+	font-size: 2em; 
+}
+
+img {
+	background-color: #F4DECB; 
+	border: purple 10px solid;
+	margin-bottom: 50px;  
+	width: 650px; 
+	height: 
+	max-width: 650px; 
+	max-height: 500px; 
+}
+
+#logged {
+	width: 500px; 
+	margin: auto; 
+	text-align: center; 
+	padding: 50px; 
+	border: 10px purple solid; 
+	float: right; 
+
+}
+
+
+a {
+	float: right;	
+}	
+</style>
+</body>
+</html>
